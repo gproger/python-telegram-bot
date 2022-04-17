@@ -46,9 +46,7 @@ class WebAppInfo(TelegramObject):
 
     """
 
-    __slots__ = (
-        'url'
-    )
+    __slots__ = ( 'url' )
 
     def __init__(
         self,
@@ -57,16 +55,3 @@ class WebAppInfo(TelegramObject):
     ):
         # Required
         self.url = url
-
-
-    @classmethod
-    def de_json(cls, data: Optional[JSONDict], bot: 'Bot') -> Optional['WebAppInfo']:
-        """See :meth:`telegram.TelegramObject.de_json`."""
-        data = cls._parse_data(data)
-
-        if not data:
-            return None
-
-        data['url'] = Location.de_json(data.get('url'), bot)
-
-        return cls(**data)
