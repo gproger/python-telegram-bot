@@ -21,6 +21,7 @@
 from typing import Any
 
 from telegram import TelegramObject, KeyboardButtonPollType
+from telegram.files.webappinfo import WebAppInfo
 
 
 class KeyboardButton(TelegramObject):
@@ -58,7 +59,7 @@ class KeyboardButton(TelegramObject):
 
     """
 
-    __slots__ = ('request_location', 'request_contact', 'request_poll', 'text', '_id_attrs')
+    __slots__ = ('request_location', 'request_contact', 'request_poll', 'text', 'web_app','_id_attrs')
 
     def __init__(
         self,
@@ -66,6 +67,7 @@ class KeyboardButton(TelegramObject):
         request_contact: bool = None,
         request_location: bool = None,
         request_poll: KeyboardButtonPollType = None,
+        web_app: WebAppInfo = None,
         **_kwargs: Any,
     ):
         # Required
@@ -74,10 +76,12 @@ class KeyboardButton(TelegramObject):
         self.request_contact = request_contact
         self.request_location = request_location
         self.request_poll = request_poll
+        self.web_app = web_app
 
         self._id_attrs = (
             self.text,
             self.request_contact,
             self.request_location,
             self.request_poll,
+            self.web_app
         )

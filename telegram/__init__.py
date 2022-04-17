@@ -48,6 +48,7 @@ from .files.contact import Contact
 from .files.location import Location
 from .files.venue import Venue
 from .files.videonote import VideoNote
+from .files.webappinfo import WebAppInfo
 from .chataction import ChatAction
 from .dice import Dice
 from .userprofilephotos import UserProfilePhotos
@@ -324,5 +325,6 @@ __all__ = (  # Keep this alphabetically ordered
     'VoiceChatEnded',
     'VoiceChatScheduled',
     'VoiceChatParticipantsInvited',
+    'WebAppInfo',
     'WebhookInfo',
 )

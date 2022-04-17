@@ -23,7 +23,7 @@ from typing import TYPE_CHECKING, Any
 from telegram import TelegramObject
 
 if TYPE_CHECKING:
-    from telegram import CallbackGame, LoginUrl
+    from telegram import CallbackGame, LoginUrl, WebAppInfo
 
 
 class InlineKeyboardButton(TelegramObject):
@@ -69,6 +69,10 @@ class InlineKeyboardButton(TelegramObject):
         callback_data (:obj:`str` | :obj:`Any`, optional): Data to be sent in a callback query to
             the bot when button is pressed, UTF-8 1-64 bytes. If the bot instance allows arbitrary
             callback data, anything can be passed.
+        web_app (:class:'telegram.WebAppInfo', optional): Description of the Web App that will be 
+            launched when the user presses the button. The Web App will be able to send an arbitrary 
+            message on behalf of the user using the method answerWebAppQuery. Available only in 
+            private chats between a user and the bot.
         switch_inline_query (:obj:`str`, optional): If set, pressing the button will prompt the
             user to select one of their chats, open that chat and insert the bot's username and the
             specified inline query in the input field. Can be empty, in which case just the bot's
@@ -123,6 +127,7 @@ class InlineKeyboardButton(TelegramObject):
         'text',
         '_id_attrs',
         'login_url',
+        'web_app'
     )
 
     def __init__(
@@ -135,6 +140,7 @@ class InlineKeyboardButton(TelegramObject):
         callback_game: 'CallbackGame' = None,
         pay: bool = None,
         login_url: 'LoginUrl' = None,
+        web_app: 'WebAppInfo' = None,
         **_kwargs: Any,
     ):
         # Required
@@ -148,6 +154,7 @@ class InlineKeyboardButton(TelegramObject):
         self.switch_inline_query_current_chat = switch_inline_query_current_chat
         self.callback_game = callback_game
         self.pay = pay
+        self.web_app = web_app
         self._id_attrs = ()
         self._set_id_attrs()
 
@@ -161,6 +168,7 @@ class InlineKeyboardButton(TelegramObject):
             self.switch_inline_query_current_chat,
             self.callback_game,
             self.pay,
+            self.web_app,
         )
 
     def update_callback_data(self, callback_data: object) -> None:
