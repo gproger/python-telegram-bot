@@ -55,8 +55,9 @@ class InlineKeyboardMarkup(ReplyMarkup):
 
     def to_dict(self) -> JSONDict:
         """See :meth:`telegram.TelegramObject.to_dict`."""
+        print('to_dict inlinekeybmarkup')
         data = super().to_dict()
-
+        print('to_dict inlinekeybmarkup child list')
         data['inline_keyboard'] = []
         for inline_keyboard in self.inline_keyboard:
             data['inline_keyboard'].append([x.to_dict() for x in inline_keyboard])

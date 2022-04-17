@@ -652,7 +652,7 @@ class Message(TelegramObject):
         data['proximity_alert_triggered'] = ProximityAlertTriggered.de_json(
             data.get('proximity_alert_triggered'), bot
         )
-        data['web_app_data'] = WebAppInfo.de_json(data.get('web_app_data'), bot)
+        #data['web_app_data'] = WebAppInfo.de_json(data.get('web_app_data'), bot)
         data['reply_markup'] = InlineKeyboardMarkup.de_json(data.get('reply_markup'), bot)
         data['voice_chat_scheduled'] = VoiceChatScheduled.de_json(
             data.get('voice_chat_scheduled'), bot
