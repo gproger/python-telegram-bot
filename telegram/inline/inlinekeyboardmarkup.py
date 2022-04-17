@@ -62,6 +62,8 @@ class InlineKeyboardMarkup(ReplyMarkup):
         for inline_keyboard in self.inline_keyboard:
             data['inline_keyboard'].append([x.to_dict() for x in inline_keyboard])
 
+        print('to_dict keyb done')
+        print(data)
         return data
 
     @classmethod

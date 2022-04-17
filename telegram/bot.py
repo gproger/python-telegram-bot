@@ -321,10 +321,12 @@ class Bot(TelegramObject):
 
         if reply_markup is not None:
             if isinstance(reply_markup, ReplyMarkup):
+                print('ReplyMarkup Instance call to_json')
                 # We need to_json() instead of to_dict() here, because reply_markups may be
                 # attached to media messages, which aren't json dumped by utils.request
                 data['reply_markup'] = reply_markup.to_json()
             else:
+                print('Direct set value')
                 data['reply_markup'] = reply_markup
 
         if data.get('media') and (data['media'].parse_mode == DEFAULT_NONE):
