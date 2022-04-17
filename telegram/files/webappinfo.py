@@ -46,7 +46,7 @@ class WebAppInfo(TelegramObject):
 
     """
 
-    __slots__ = ( 'url' )
+    __slots__ = ( 'url', )
 
     def __init__(
         self,
